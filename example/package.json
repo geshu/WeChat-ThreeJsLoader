@@ -1,0 +1,16 @@
+{
+  "name": "sample_threejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "regenerator-runtime": "^0.13.7",
+    "threejs-miniprogram": "0.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

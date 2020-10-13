@@ -1,0 +1,2 @@
+<!--index.wxml-->
+<canvas type="webgl" id="webgl"  style="position:fixed;width:{{canvasWidth}}px;height:{{canvasHeight}}px;top:{{canvasTop}}px;left:{{canvasLeft}}px;z-index:1;" ></canvas>

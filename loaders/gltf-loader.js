@@ -24,10 +24,10 @@ export function registerGLTFLoader(THREE) {
 
       crossOrigin: 'anonymous',
 
-      load: function (canvas,url, onLoad, onProgress, onError) {
-        console.log(canvas)
+      load: function (url, onLoad, onProgress, onError) {
+     
         var scope = this;
-        THREE.canvas = canvas
+      
 
 
         var resourcePath;
@@ -41,6 +41,7 @@ export function registerGLTFLoader(THREE) {
           resourcePath = this.path;
 
         } else {
+          console.log(url)
 
           resourcePath = THREE.LoaderUtils.extractUrlBase(url);
 
@@ -2036,7 +2037,7 @@ export function registerGLTFLoader(THREE) {
           //console.log(revsolvedURI)
           console.log(loader)
 
-          loader.load(THREE.canvas ,revsolvedURI, resolve, undefined, reject);
+          loader.load( revsolvedURI, resolve, undefined, reject);
 
         });
 

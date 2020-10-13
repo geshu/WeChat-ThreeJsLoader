@@ -9,7 +9,8 @@ export function registerTextureLoader(THREE) {
     }
     Object.assign(ImageLoader.prototype, {
       crossOrigin: 'anonymous',
-      load: function(canvas, url, onLoad, onProgress, onError) {
+      load: function(url, onLoad, onProgress, onError) {
+        let canvas=THREE.canvas;
         if (url === undefined) url = '';
         if (this.path !== undefined) url = this.path + url;
         url = this.manager.resolveURL(url);
@@ -30,7 +31,7 @@ export function registerTextureLoader(THREE) {
           image.onload = function() {};
           image.onerror = function() {};
 
-          console.log("图片加载完毕")
+          console.log("图片加载完毕");
           THREE.Cache.add(url, this);
           if (onLoad) onLoad(this);
           scope.manager.itemEnd(url);
@@ -81,12 +82,12 @@ export function registerTextureLoader(THREE) {
     }
     Object.assign(TextureLoader.prototype, {
       crossOrigin: 'anonymous',
-      load: function(canvas, url, onLoad, onProgress, onError) {
+      load: function( url, onLoad, onProgress, onError) {
         var texture = new THREE.Texture();
         var loader = new THREE.ImageLoader(this.manager);
         loader.setCrossOrigin(this.crossOrigin);
         loader.setPath(this.path);
-        loader.load(canvas, url, function(image) {
+        loader.load(url, function(image) {
           texture.image = image;
           var isJPEG = url.search(/\.jpe?g$/i) > 0 || url.search(/^data\:image\/jpeg/) === 0;
           texture.format = isJPEG ? THREE.RGBFormat : THREE.RGBAFormat;
